@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 //import './App.css';
 import Axios from 'axios';
-export default class JonSnowBorn extends Component {
+export default class MargaeryTyrell extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -10,12 +10,12 @@ export default class JonSnowBorn extends Component {
     }
   }
   componentDidMount() {
-    Axios.get("https://anapioficeandfire.com/api/characters/583")
+    Axios.get("http://anapioficeandfire.com/api/characters/16")
     .then(Response => {
-      let JonSnowBorn=Response.data.born;
-      console.log("Born: " + JonSnowBorn);
+      let MargaeryTyrell=Response.data.born;
+      console.log("Born: " + MargaeryTyrell);
       // const arr = Object.keys(json_data).map((key) => [key, json_data[key]]);
-      this.setState({data:JonSnowBorn})
+      this.setState({data:MargaeryTyrell})
     })
     .catch(error => {
       console.log('there is an error', error)
@@ -24,8 +24,8 @@ export default class JonSnowBorn extends Component {
   render() {
     return (
       <div>
-        <h2>Q: When was Jon Snow born?</h2>
-        <h3>Jon Snow was born {this.state.data}.</h3>        
+        <h2>Q: Where was Margaery Tyrell born?</h2>
+        <h3>Margaery Tyrell was born {this.state.data}.</h3>        
       </div>
     )
   }
