@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 //import './App.css';
 import Axios from 'axios';
-export default class JonSnowBorn extends Component {
+export default class MargaeryBorn extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -10,11 +10,9 @@ export default class JonSnowBorn extends Component {
     }
   }
   componentDidMount() {
-    Axios.get("https://anapioficeandfire.com/api/characters/583")
-    .then(Response => {
-      let JonSnowBorn=Response.data.born;
-    
-      this.setState({data:JonSnowBorn})
+    Axios.get("https://anapioficeandfire.com/api/characters/16/").then(res => {
+      const MargaeryBorn=res.data.born;
+      this.setState({data:MargaeryBorn})
     })
     .catch(error => {
       console.log('there is an error', error)
@@ -23,8 +21,8 @@ export default class JonSnowBorn extends Component {
   render() {
     return (
       <div>
-        <h1>Q: When was Jon Snow born?</h1>
-        <h3>Jon Snow was born {this.state.data}.</h3>        
+        <h2> Where was Margaery Tyrell born?</h2>
+        <h4>Margaery Tyrell was born {this.state.data}.</h4>
       </div>
     )
   }

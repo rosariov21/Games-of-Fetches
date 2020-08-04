@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 //import './App.css';
 import Axios from 'axios';
-export default class MargaeryTyrell extends Component {
+export default class HouseTargaryen extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -10,12 +10,12 @@ export default class MargaeryTyrell extends Component {
     }
   }
   componentDidMount() {
-    Axios.get("http://anapioficeandfire.com/api/characters/16")
+    Axios.get("http://www.anapioficeandfire.com/api/houses/378")
     .then(Response => {
-      let MargaeryTyrell=Response.data.born;
-      console.log("Born: " + MargaeryTyrell);
+      const HouseTargaryen=Response.data.region;
+      console.log("Region: " + HouseTargaryen);
       // const arr = Object.keys(json_data).map((key) => [key, json_data[key]]);
-      this.setState({data:MargaeryTyrell})
+      this.setState({data:HouseTargaryen})
     })
     .catch(error => {
       console.log('there is an error', error)
@@ -24,8 +24,8 @@ export default class MargaeryTyrell extends Component {
   render() {
     return (
       <div>
-        <h2>Q: Where was Margaery Tyrell born?</h2>
-        <h3>Margaery Tyrell was born {this.state.data}.</h3>        
+        <h1>Q: What region is House Targaryen in?</h1>
+        <h3>A:The region that House Targaryen is{this.state.data}.</h3>        
       </div>
     )
   }

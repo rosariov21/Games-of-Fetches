@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 //import './App.css';
 import Axios from 'axios';
-export default class JonSnowBorn extends Component {
+export default class HouseLannister extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -10,11 +10,10 @@ export default class JonSnowBorn extends Component {
     }
   }
   componentDidMount() {
-    Axios.get("https://anapioficeandfire.com/api/characters/583")
+    Axios.get("http://www.anapioficeandfire.com/api/houses/229")
     .then(Response => {
-      let JonSnowBorn=Response.data.born;
-    
-      this.setState({data:JonSnowBorn})
+      const HouseLannister=Response.data.coats;
+      this.setState({data:HouseLannister})
     })
     .catch(error => {
       console.log('there is an error', error)
@@ -23,8 +22,8 @@ export default class JonSnowBorn extends Component {
   render() {
     return (
       <div>
-        <h1>Q: When was Jon Snow born?</h1>
-        <h3>Jon Snow was born {this.state.data}.</h3>        
+        <h1>Q: What's the coat of arms of House Lannister?</h1>
+        <h3>A:the coat of arms of House Lannister is {this.state.data}.</h3>        
       </div>
     )
   }
