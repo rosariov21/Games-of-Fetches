@@ -1,29 +1,20 @@
-import axios from "axios";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
 
-let one =
-  "https://api.storyblok.com/v1/cdn/stories/health?version=published&token=wANpEQEsMYGOwLxwXQ76Ggtt";
-let two =
-  "https://api.storyblok.com/v1/cdn/datasources/?token=wANpEQEsMYGOwLxwXQ76Ggtt";
-let three =
-  "https://api.storyblok.com/v1/cdn/stories/vue?version=published&token=wANpEQEsMYGOwLxwXQ76Ggtt";
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
 
-const requestOne = axios.get(one);
-const requestTwo = axios.get(two);
-const requestThree = axios.get(three);
 
-axios
-  .all([requestOne, requestTwo, requestThree])
-  .then(
-    axios.spread((...responses) => {
-      const responseOne = responses[0];
-      const responseTwo = responses[1];
-      const responesThree = responses[2];
 
-      // use/access the results
-      console.log(responseOne, responseTwo, responesThree);
-    })
-  )
-  .catch(errors => {
-    // react on errors.
-    console.error(errors);
-  });
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
